@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "pnpm nodemon index.js --watch",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Victor Gonzales <vgonzales5157@gmail.com> (https://github.com/KuroXI)",
@@ -17,5 +18,8 @@
     "fastify": "^4.27.0",
     "pdf-to-img": "^3.0.0",
     "qs": "^6.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.2"
   }
 }
