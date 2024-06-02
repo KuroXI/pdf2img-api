@@ -20,18 +20,10 @@ fastify
 fastify.get("/", (_, reply) => reply.send("Welcome to pdf2img API!"));
 fastify.get("*", (_, reply) => reply.send("Page not found!"));
 
-fastify.get("/keep-alive", async (_, reply) => {
-  if (!process.env.VERCEL_URL) return;
-  await axios.get(`https://${process.env.VERCEL_URL}/health`);
-  reply.send("ok");
-});
-
-fastify.get("/health", (_, reply) => reply.send("ok"));
-
 fastify.post("/convert", async (req, reply) => {
   const data = await req.file();
-  const buffer = await data.toBuffer()
-  
+  const buffer = await data.toBuffer();
+
   const document = await pdf(buffer);
 
   const images = [];
